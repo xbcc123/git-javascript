@@ -23,11 +23,17 @@ function replaceLastStr(options, lastStr) {
 // 获取文件里面匹配到的数据
 // var grepStr = shell.grep(/\s.*?yankangjie/, path).stdout
 
-var data = fs.readFileSync('.git/logs/refs/heads/master');
+// 获取当前分支
+var nowBranch = fs.readFileSync(`.git/HEAD`).toString()
+var nowBranchr = nowBranch.split("/").reverse()[0].toString()
+console.log(nowBranchr)
+
+var data = fs.readFileSync(`.git/logs/refs/heads/${nowBranchr}`);
 var datas = data.toString()
 
 // console.log("同步读取: " + data.toString());
 
+// 获取当前修改的commitID
 var datar = datas.match(/\s.*?yankangjie/g).reverse()[0].split(" ")[1].toString()
 
 
@@ -67,5 +73,5 @@ var datar = datas.match(/\s.*?yankangjie/g).reverse()[0].split(" ")[1].toString(
 // shell.exec(`git pull`)
 // shell.exec('git push')
 
-shell.exec('git checkout ykj')
-shell.exec(`git cherry-pick ${datar}`)
+// shell.exec('git checkout ykj')
+// shell.exec(`git cherry-pick ${datar}`)
