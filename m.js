@@ -68,4 +68,4 @@ var datar = datas.match(/\s.*?yankangjie/g).reverse()[0].split(" ")[1].toString(
 // shell.exec('git push')
 
 shell.exec('git checkout ykj')
-shell.exec('git cherry-pick datar')
+shell.exec(`git cherry-pick ${datar}`)
