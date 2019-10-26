@@ -1,0 +1,23 @@
+{
+  "name": "gittest2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/287207951/gittest2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/287207951/gittest2/issues"
+  },
+  "homepage": "https://gitlab.com/287207951/gittest2#readme",
+  "dependencies": {
+    "shelljs": "^0.8.3",
+    "yargs": "^14.2.0"
+  }
+}
