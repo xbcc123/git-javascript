@@ -29,10 +29,8 @@ var nowBranch = fs.readFileSync(`.git/HEAD`).toString()
 var nowBranchr = nowBranch.split("/").reverse()[0].toString()
 
 console.log("当前分支", nowBranchr)
-setTimeout(() => {
-    var data = fs.readFileSync(`.git/logs/refs/heads/master`).toString()
-    console.log(data)
-}, 1000)
+var data = fs.readFileSync(`.git/logs/refs/heads/master`).toString()
+console.log(data)
 
 // var datas = data.toString()
 // 获取当前修改的commitID
