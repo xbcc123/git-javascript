@@ -11,7 +11,7 @@ const getScenemapData = () => {
         jsonp: "callback",
         jsonpCallback: "jsonhandle",//要执行的回调函数
         success: function (data) {
-            $VERSION_INFO.env = 'dev'
+            $VERSION_INFO.env = 'test'
             $APP_VERSION = getVersions($VERSION_INFO, data).match(/<version>.*<\/version>/)[0].replace('<version>', '').replace('</version>', '')
             console.log(data, $VERSION_INFO, getVersions($VERSION_INFO, data))
             $('#version').text($APP_VERSION)
