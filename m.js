@@ -5,7 +5,7 @@ var fs = require("fs");
 const argv = require('yargs').argv;
 
 const commit = argv._[0]
-const version = "V3.8.x.191023"
+// const version = "V3.8.x.191023"
 const path = `.git/logs/refs/heads/master`
 
 // 提取版本号最后的数字
@@ -14,28 +14,65 @@ function getLastStr(options) {
 }
 
 // 替换版本号最后一位
-function replaceLastStr(options, lastStr) {
-    var arr = options.split('.')
-    var lastIndex = arr.lastIndexOf(lastStr)
-    arr.splice(lastIndex, 1, lastStr - 0 + 1)
-    return arr.join('.')
-}
+// function replaceLastStr(options, lastStr) {
+//     var arr = options.split('.')
+//     var lastIndex = arr.lastIndexOf(lastStr)
+//     arr.splice(lastIndex, 1, lastStr - 0 + 1)
+//     return arr.join('.')
+// }
+
 // 获取文件里面匹配到的数据
 // var grepStr = shell.grep(/\s.*?yankangjie/, path).stdout
 
 // 获取当前分支
 var nowBranch = fs.readFileSync(`.git/HEAD`).toString()
 var nowBranchr = nowBranch.split("/").reverse()[0].toString()
-console.log(nowBranchr)
 
-var data = fs.readFileSync(`.git/logs/refs/heads/${nowBranchr}`);
-var datas = data.toString()
+console.log("当前分支", nowBranchr)
+setTimeout(() => {
+    var data = fs.readFileSync(`.git/logs/refs/heads/master`).toString()
+    console.log(data)
+}, 1000)
 
+// var datas = data.toString()
+// 获取当前修改的commitID
+// var datar = datas.match(/\s.*?yankangjie/g).reverse()[0].split(" ")[1].toString()
 // console.log("同步读取: " + data.toString());
 
-// 获取当前修改的commitID
-var datar = datas.match(/\s.*?yankangjie/g).reverse()[0].split(" ")[1].toString()
+// console.log("当前commit", datar)
 
+var versionInfo = fs.readFileSync('./version/versions.js').toString()
+console.log(versionInfo.match(/(dev: "v){1}.*(\"\,)/g));
+
+// fs.writeFile('index.html', datar, function (err) {
+//     if (err) {
+//         return console.error(err);
+//     }
+//     console.log("数据写入成功！");
+//     console.log("--------我是分割线-------------")
+//     console.log("读取写入的数据！");
+//     fs.readFile('input.txt', function (err, data) {
+//         if (err) {
+//             return console.error(err);
+//         }
+//         console.log("异步读取文件数据: " + data.toString());
+//     });
+// });
+
+// fs.writeFile('index.html', datar, function (err) {
+//     if (err) {
+//         return console.error(err);
+//     }
+//     console.log("数据写入成功！");
+//     console.log("--------我是分割线-------------")
+//     console.log("读取写入的数据！");
+//     fs.readFile('input.txt', function (err, data) {
+//         if (err) {
+//             return console.error(err);
+//         }
+//         console.log("异步读取文件数据: " + data.toString());
+//     });
+// });
 
 // fs.writeFile('input.txt', datar, function (err) {
 //     if (err) {
