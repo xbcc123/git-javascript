@@ -39,8 +39,8 @@ console.log(data)
 
 // console.log("当前commit", datar)
 
-var versionInfo = fs.readFileSync('./version/versions.js').toString()
-console.log(versionInfo.match(/(dev: "v){1}.*(\"\,)/g));
+// var versionInfo = fs.readFileSync('./version/versions.js').toString()
+// console.log(versionInfo.match(/(dev: "v){1}.*(\"\,)/g));
 
 // fs.writeFile('index.html', datar, function (err) {
 //     if (err) {
